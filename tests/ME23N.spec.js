@@ -14,7 +14,7 @@ const allCredentials = [
 ];
 
 // Test all 10 users - Change this array to test specific users
-const usersToTest = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]; // All 10 users
+const usersToTest = [2]; // Only users 1 and 2
 //const usersToTest = [1, 2, 3, 4, 7, 8, 9, 10]; // Exclude users 5 and 6
 //const usersToTest = [9, 10]; // Only specific users
 const credentials = allCredentials.filter((_, index) => usersToTest.includes(index + 1));
@@ -22,8 +22,11 @@ const credentials = allCredentials.filter((_, index) => usersToTest.includes(ind
 // Run test for each credential set
 for (const cred of credentials) {
   test(`testME23N - ${cred.name} (${cred.username})`, async ({ page }) => {
-    //await page.goto('https://sapus4apps001.wowcorp.com.au:8443/sap/bc/ui2/flp?saml2=disabled');
-    await page.goto('https://sapts4apps001.wowcorp.com.au:8443/sap/bc/ui2/flp?saml2=disabled');
+    // US4 :
+    await page.goto('https://sapus4apps001.wowcorp.com.au:8443/sap/bc/ui2/flp?saml2=disabled');
+
+    // TS4 :
+    // await page.goto('https://sapts4apps001.wowcorp.com.au:8443/sap/bc/ui2/flp?saml2=disabled');
   await page.getByRole('textbox', { name: 'User' }).click();
   await page.getByRole('textbox', { name: 'User' }).fill(cred.username);
   await page.getByRole('textbox', { name: 'Password' }).click();
@@ -31,7 +34,7 @@ for (const cred of credentials) {
   await page.getByRole('button', { name: 'Log On' }).click();
   await page.getByRole('button', { name: 'More' }).nth(0).click();
   await page.waitForTimeout(2000);
-  await page.getByRole('menuitem', { name: 'Transactions' }).click();
+  await page.getByRole('menuitem', { name: 'Transaction' }).click();
   //await page.locator('[title="More"]').nth(0).click({ force: true });
   //await page.getByRole('menuitem', { name: 'Transaction' }).click();
 

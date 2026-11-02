@@ -1,7 +1,12 @@
 import { test, expect } from '@playwright/test';
 
 test('testF0718', async ({ page }) => {
-  await page.goto('https://sapus4apps001.wowcorp.com.au:8443/sap/bc/ui2/flp?saml2=disabled');
+  // US4 : 
+    await page.goto('https://sapus4apps001.wowcorp.com.au:8443/sap/bc/ui2/flp?saml2=disabled');
+
+    // TS4 :
+    // await page.goto('https://sapts4apps001.wowcorp.com.au:8443/sap/bc/ui2/flp?saml2=disabled');
+
   await page.getByRole('textbox', { name: 'User' }).fill(process.env.USERNAME2);
   await page.getByRole('textbox', { name: 'Password' }).click();
   await page.getByRole('textbox', { name: 'Password' }).fill(process.env.PASSWORD2);
@@ -16,7 +21,7 @@ test('testF0718', async ({ page }) => {
   await page.locator('[id="fin.gl.journalentry.manage::sap.suite.ui.generic.template.ListReport.view.ListReport::C_ManageJournalEntryTP--listReportFilter-filterItemControl_BASIC-DocumentDate-input-vhi"]').click();
   await page.locator('div').filter({ hasText: /^Today$/ }).nth(2).click();
   await page.getByRole('button', { name: 'Go', exact: true }).click();
-  await page.getByRole('link', { name: '9385817845' }).click();3212205836
+  await page.getByRole('link', { name: '9385817845' }).click();
   await page.locator('[id="__link97"]').click();
   await page.getByRole('link', { name: 'Post General Journal Entries (For Verification)' }).click();
   await page.getByRole('button', { name: 'Back' }).click();

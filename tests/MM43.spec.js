@@ -1,13 +1,18 @@
 import { test, expect } from '@playwright/test';
 
 test('testMM43', async ({ page }) => {
+  // US4 :
   await page.goto('https://sapus4apps001.wowcorp.com.au:8443/sap/bc/ui2/flp?saml2=disabled');
+
+  // TS4 :
+  // await page.goto('https://sapts4apps001.wowcorp.com.au:8443/sap/bc/ui2/flp?saml2=disabled');
   await page.getByRole('textbox', { name: 'User' }).fill(process.env.USERNAME2);
   await page.getByRole('textbox', { name: 'Password' }).click();
   await page.getByRole('textbox', { name: 'Password' }).fill(process.env.PASSWORD2);
   await page.getByRole('button', { name: 'Log On' }).click();
-  await page.getByRole('listitem', { name: 'Master Data Group Accounting' }).click();
-  await page.getByRole('link', { name: 'Display Article Tile' }).click();
+  await page.getByRole('button', { name: 'More' }).click();
+  await page.getByRole('menuitem', { name: 'Master Data' }).click();
+  await page.getByRole('link', { name: 'Display Article MM43 MM43 Tile' }).click();
   await page.locator('iframe[name="application-Article-display-iframe"]').contentFrame().getByRole('textbox', { name: 'Article Required' }).click();
   await page.locator('iframe[name="application-Article-display-iframe"]').contentFrame().getByRole('textbox', { name: 'Article Required' }).fill('38966');
   await page.locator('iframe[name="application-Article-display-iframe"]').contentFrame().getByRole('textbox', { name: 'Article Required' }).press('Enter');
@@ -26,8 +31,9 @@ test('testMM43', async ({ page }) => {
   await page.locator('iframe[name="application-Article-display-iframe"]').contentFrame().getByRole('row', { name: 'To select a row, press the space bar. POS' }).locator('td').click();
   await page.locator('iframe[name="application-Article-display-iframe"]').contentFrame().getByRole('row', { name: 'To select a row, press the space bar. Labelling Data' }).locator('td').click();
   await page.locator('iframe[name="application-Article-display-iframe"]').contentFrame().getByRole('button', { name: 'Continue' }).click();
-  await page.locator('iframe[name="application-Article-display-iframe"]').contentFrame().getByTitle('Basic data').click();
-  await page.locator('iframe[name="application-Article-display-iframe"]').contentFrame().getByTitle('Listing').click();
-  await page.locator('iframe[name="application-Article-display-iframe"]').contentFrame().getByTitle('Purchasing').click();
+  await page.waitForTimeout(1000);
+  await page.locator('iframe[name="application-Article-display-iframe"]').contentFrame().getByRole('tablist').getByText('Listing').click();
+  await page.locator('iframe[name="application-Article-display-iframe"]').contentFrame().getByRole('tablist').getByText('Purchasing').click();
   await page.waitForTimeout(10000);
+
 });

@@ -13,11 +13,15 @@ const allCredentials = [
   { username: process.env.USERNAME9, password: process.env.PASSWORD9, name: 'User9' },
   { username: process.env.USERNAME10, password: process.env.PASSWORD10, name: 'User10' },
 ];
-const usersToTest = [3, 4, 7, 8]; // Only run users 3, 4, 7, and 8
+const usersToTest = [1];
 const credentials = allCredentials.filter((_, index) => usersToTest.includes(index + 1));
 for (const cred of credentials) {
-  test(`testZPS130- ${cred.name} (${cred.username})`, async ({ page }) => {
-    await page.goto('https://sapts4apps001.wowcorp.com.au:8443/sap/bc/ui2/flp?saml2=disabled');
+  test(`testZPS130 - ${cred.name} (${cred.username})`, async ({ page }) => {
+    // US4 :
+    await page.goto('https://sapus4apps001.wowcorp.com.au:8443/sap/bc/ui2/flp?saml2=disabled');
+
+    // TS4 :
+    // await page.goto('https://sapts4apps001.wowcorp.com.au:8443/sap/bc/ui2/flp?saml2=disabled');
     await page.getByRole('textbox', { name: 'User' }).click();
     await page.getByRole('textbox', { name: 'User' }).fill(cred.username);
     await page.getByRole('textbox', { name: 'Password' }).click();

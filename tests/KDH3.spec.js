@@ -1,7 +1,11 @@
 import { test, expect } from '@playwright/test';
 
 test('testKDH3', async ({ page }) => {
+  // US4 :
   await page.goto('https://sapus4apps001.wowcorp.com.au:8443/sap/bc/ui2/flp?saml2=disabled');
+
+  // TS4 :
+  // await page.goto('https://sapts4apps001.wowcorp.com.au:8443/sap/bc/ui2/flp?saml2=disabled');
   await page.getByRole('textbox', { name: 'User' }).click();
   await page.getByRole('textbox', { name: 'User' }).fill(process.env.USERNAME1);
   await page.getByRole('textbox', { name: 'Password' }).click();

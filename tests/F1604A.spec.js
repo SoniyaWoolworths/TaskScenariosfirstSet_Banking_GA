@@ -1,7 +1,11 @@
 import { test, expect } from '@playwright/test';
 
 test('testF1604A', async ({ page }) => {
+  // US4 :
   await page.goto('https://sapus4apps001.wowcorp.com.au:8443/sap/bc/ui2/flp?saml2=disabled');
+
+  // TS4 :
+  // await page.goto('https://sapts4apps001.wowcorp.com.au:8443/sap/bc/ui2/flp?saml2=disabled');
   await page.getByRole('textbox', { name: 'User' }).click();
   await page.getByRole('textbox', { name: 'User' }).fill(process.env.USERNAME2);
   await page.getByRole('textbox', { name: 'Password' }).click();
@@ -10,7 +14,7 @@ test('testF1604A', async ({ page }) => {
   await page.getByRole('listitem', { name: 'Master Data Group Accounting' }).click();
   await page.getByRole('link', { name: 'Manage Internal Orders (' }).click();
   await page.getByRole('button', { name: 'Go', exact: true }).click();
-  await page.locator('[id="fin.co.internalorder.manage.v2::sap.suite.ui.generic.template.ListReport.view.ListReport::C_InternalOrderTP--template:::ListReportTable:::ColumnListItem-__clone320-imgNav"]').getByTitle('Navigation').click();
+  await page.locator('[id="fin.co.internalorder.manage.v2::sap.suite.ui.generic.template.ListReport.view.ListReport::C_InternalOrderTP--template:::ListReportTable:::ColumnListItem-__clone300-imgNav"]').getByTitle('Navigation').click();
   await page.getByRole('button', { name: 'Close' }).click();
   await page.getByRole('button', { name: 'Create' }).click();
   await page.getByRole('textbox', { name: 'Controlling Area', exact: true }).click();

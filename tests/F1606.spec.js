@@ -1,7 +1,11 @@
 import { test } from '@playwright/test';
 
 test('testF1606', async ({ page }) => {
+    // US4 :
     await page.goto('https://sapus4apps001.wowcorp.com.au:8443/sap/bc/ui2/flp?saml2=disabled');
+
+    // TS4 :
+    // await page.goto('https://sapts4apps001.wowcorp.com.au:8443/sap/bc/ui2/flp?saml2=disabled');
   await page.getByRole('textbox', { name: 'User' }).fill('T_BNK_ACCTNT');
   await page.getByRole('textbox', { name: 'Password' }).click();
   await page.getByRole('textbox', { name: 'Password' }).click();
@@ -23,26 +27,26 @@ test('testF1606', async ({ page }) => {
   await page.getByRole('textbox', { name: 'Reference' }).fill('TEST011');
   await page.getByRole('textbox', { name: 'Header Text' }).click();
   await page.getByRole('textbox', { name: 'Header Text' }).fill('TEST011');
-  await page.locator('[id="application-AccountingDocument-postCurrencyAdjustments-component---postCrcyAdjmts--sap.fin.gl.lib.posting.GLAccount-__clone362-input-inner"]').click();
-  await page.locator('[id="application-AccountingDocument-postCurrencyAdjustments-component---postCrcyAdjmts--sap.fin.gl.lib.posting.GLAccount-__clone362-input-inner"]').fill('400000');
-  await page.locator('[id="application-AccountingDocument-postCurrencyAdjustments-component---postCrcyAdjmts--sap.fin.gl.lib.posting.GLAccount-__clone362-input-inner"]').press('Enter');
-  await page.locator('[id="application-AccountingDocument-postCurrencyAdjustments-component---postCrcyAdjmts--sap.fin.gl.lib.posting.GLAccount-__clone363-input-inner"]').click();
-  await page.locator('[id="application-AccountingDocument-postCurrencyAdjustments-component---postCrcyAdjmts--sap.fin.gl.lib.posting.GLAccount-__clone363-input-inner"]').fill('400000');
-  await page.locator('[id="application-AccountingDocument-postCurrencyAdjustments-component---postCrcyAdjmts--sap.fin.gl.lib.posting.GLAccount-__clone363-input-inner"]').press('Enter');
-  await page.locator('[id="application-AccountingDocument-postCurrencyAdjustments-component---postCrcyAdjmts--sap.fin.gl.lib.posting.DebitAmountInTransCrcy-__clone362-input-inner"]').click();
-  await page.locator('[id="application-AccountingDocument-postCurrencyAdjustments-component---postCrcyAdjmts--sap.fin.gl.lib.posting.DebitAmountInTransCrcy-__clone362-input-inner"]').press('ControlOrMeta+a');
-  await page.locator('[id="application-AccountingDocument-postCurrencyAdjustments-component---postCrcyAdjmts--sap.fin.gl.lib.posting.DebitAmountInTransCrcy-__clone362-input-inner"]').fill('10');
-  await page.locator('[id="application-AccountingDocument-postCurrencyAdjustments-component---postCrcyAdjmts--sap.fin.gl.lib.posting.CreditAmountInTransCrcy-__clone363-input-inner"]').click();
-  await page.locator('[id="application-AccountingDocument-postCurrencyAdjustments-component---postCrcyAdjmts--sap.fin.gl.lib.posting.CreditAmountInTransCrcy-__clone363-input-inner"]').press('ControlOrMeta+a');
-  await page.locator('[id="application-AccountingDocument-postCurrencyAdjustments-component---postCrcyAdjmts--sap.fin.gl.lib.posting.CreditAmountInTransCrcy-__clone363-input-inner"]').fill('10');
-  await page.locator('[id="application-AccountingDocument-postCurrencyAdjustments-component---postCrcyAdjmts--sap.fin.gl.lib.posting.itemPanel-__clone362-expandButton"]').click();
+  await page.locator('[id="application-AccountingDocument-postCurrencyAdjustments-component---postCrcyAdjmts--sap.fin.gl.lib.posting.GLAccount-__clone344-input-inner"]').click();
+  await page.locator('[id="application-AccountingDocument-postCurrencyAdjustments-component---postCrcyAdjmts--sap.fin.gl.lib.posting.GLAccount-__clone344-input-inner"]').fill('400000');
+  await page.locator('[id="application-AccountingDocument-postCurrencyAdjustments-component---postCrcyAdjmts--sap.fin.gl.lib.posting.GLAccount-__clone344-input-inner"]').press('Enter');
+  await page.locator('[id="application-AccountingDocument-postCurrencyAdjustments-component---postCrcyAdjmts--sap.fin.gl.lib.posting.GLAccount-__clone345-input-inner"]').click();
+  await page.locator('[id="application-AccountingDocument-postCurrencyAdjustments-component---postCrcyAdjmts--sap.fin.gl.lib.posting.GLAccount-__clone345-input-inner"]').fill('400000');
+  await page.locator('[id="application-AccountingDocument-postCurrencyAdjustments-component---postCrcyAdjmts--sap.fin.gl.lib.posting.GLAccount-__clone345-input-inner"]').press('Enter');
+  await page.locator('[id="application-AccountingDocument-postCurrencyAdjustments-component---postCrcyAdjmts--sap.fin.gl.lib.posting.DebitAmountInTransCrcy-__clone344-input-inner"]').click();
+  await page.locator('[id="application-AccountingDocument-postCurrencyAdjustments-component---postCrcyAdjmts--sap.fin.gl.lib.posting.DebitAmountInTransCrcy-__clone344-input-inner"]').press('ControlOrMeta+a');
+  await page.locator('[id="application-AccountingDocument-postCurrencyAdjustments-component---postCrcyAdjmts--sap.fin.gl.lib.posting.DebitAmountInTransCrcy-__clone344-input-inner"]').fill('10');
+  await page.locator('[id="application-AccountingDocument-postCurrencyAdjustments-component---postCrcyAdjmts--sap.fin.gl.lib.posting.CreditAmountInTransCrcy-__clone345-input-inner"]').click();
+  await page.locator('[id="application-AccountingDocument-postCurrencyAdjustments-component---postCrcyAdjmts--sap.fin.gl.lib.posting.CreditAmountInTransCrcy-__clone345-input-inner"]').press('ControlOrMeta+a');
+  await page.locator('[id="application-AccountingDocument-postCurrencyAdjustments-component---postCrcyAdjmts--sap.fin.gl.lib.posting.CreditAmountInTransCrcy-__clone345-input-inner"]').fill('10');
+  await page.locator('[id="application-AccountingDocument-postCurrencyAdjustments-component---postCrcyAdjmts--sap.fin.gl.lib.posting.itemPanel-__clone344-expandButton"]').click();
   await page.getByRole('textbox', { name: 'Tax Code :' }).click();
   await page.getByRole('textbox', { name: 'Tax Code :' }).fill('50');
   await page.getByRole('textbox', { name: 'Tax Code :' }).press('Enter');
-  await page.locator('[id="application-AccountingDocument-postCurrencyAdjustments-component---postCrcyAdjmts--sap.fin.gl.lib.posting.itemPanel-__clone363-expandButton"]').click();
-  await page.locator('[id="__xmlview121_codingBlockDetailsGroupElement_TaxCode-input-inner"]').click();
-  await page.locator('[id="__xmlview121_codingBlockDetailsGroupElement_TaxCode-input-inner"]').fill('50');
-  await page.locator('[id="__xmlview121_codingBlockDetailsGroupElement_TaxCode-input-inner"]').press('Enter');
+  await page.locator('[id="application-AccountingDocument-postCurrencyAdjustments-component---postCrcyAdjmts--sap.fin.gl.lib.posting.itemPanel-__clone345-expandButton"]').click();
+  await page.locator('[id="__xmlview114_codingBlockDetailsGroupElement_TaxCode-input-inner"]').click();
+  await page.locator('[id="__xmlview114_codingBlockDetailsGroupElement_TaxCode-input-inner"]').fill('50');
+  await page.locator('[id="__xmlview114_codingBlockDetailsGroupElement_TaxCode-input-inner"]').press('Enter');
   //await page.locator('[id="application-AccountingDocument-postCurrencyAdjustments-component---postCrcyAdjmts--fin.acc.post.foreign.crcy.rem.btnPost-inner"]').getByRole('button', { name: 'Post' }).click();
   await page.locator('button:has-text("Post")').click();
   await page.getByRole('button', { name: 'OK' }).click();

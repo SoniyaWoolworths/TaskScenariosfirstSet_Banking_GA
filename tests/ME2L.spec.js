@@ -12,36 +12,19 @@ const allCredentials = [
   { username: process.env.USERNAME9, password: process.env.PASSWORD9, name: 'User9' },//RetailAccountant
   { username: process.env.USERNAME10, password: process.env.PASSWORD10, name: 'User10' },//RetailSnrAccountant
 ];
-/*const allCredentials = [
-  { username: process.env.BankingUsername, password: process.env.BankingPassword, name: 'T_BNK_ACCTNT', key: 'Banking' },
-  { username: process.env.OHDAccountantUsername, password: process.env.OHDAccountantPassword, name: 'T_OHD_ACCTNT', key: 'OHDAccountant' },
-  { username: process.env.DSISystemSpecialistUsername, password: process.env.DSISystemSpecialistPassword, name: 'T_DSI_SYSSPC', key: 'DSISystemSpecialist' },
-  { username: process.env.DSIManagerUsername, password: process.env.DSIManagerPassword, name: 'T_DSI_MGR', key: 'DSIManager' },
-  { username: process.env.EEIAccountantUsername, password: process.env.EEIAccountantPassword, name: 'T_EEI_ACCTNT', key: 'EEIAccountant' },
-  { username: process.env.EEIAccountingManagerUsername, password: process.env.EEIAccountingManagerPassword, name: 'T_EEI_ACCMGR', key: 'EEIAccountingManager' },
-  { username: process.env.PAAccountantUsername, password: process.env.PAAccountantPassword, name: 'T_PA_ACCTNT', key: 'PAAccountant' },
-  { username: process.env.PAAccountingManagerUsername, password: process.env.PAAccountingManagerPassword, name: 'T_PA_ACCMGR', key: 'PAAccountingManager' },
-  { username: process.env.RetailAccountantUsername, password: process.env.RetailAccountantPassword, name: 'T_RTL_ACCTNT', key: 'RetailAccountant' },
-  { username: process.env.RetailSnrAccountantUsername, password: process.env.RetailSnrAccountantPassword, name: 'T_RTL_SR_ACN', key: 'RetailSnrAccountant' },
-  { username: process.env.ServiceAccountantUsername, password: process.env.ServiceAccountantPassword, name: 'T_SRV_ACCTNT', key: 'ServiceAccountant' },
-  { username: process.env.ServiceAccountingManagerUsername, password: process.env.ServiceAccountingManagerPassword, name: 'T_SRV_ACCMGR', key: 'ServiceAccountingManager' },
-];*/
 
-const usersToTest = [3, 4, 7, 8, 9, 10];
+
+const usersToTest = [2];
 const credentials = allCredentials.filter((_, index) => usersToTest.includes(index + 1));
 
-// Select which users to test - Use variable names instead of numbers
-//const usersToTest = ['DSISystemSpecialist', 'DSIManager', 'EEIAccountant', 'EEIAccountingManager', 'RetailAccountant', 'RetailSnrAccountant']; // Testing DSI, EEI, and RTL team IDs
 
-// Filter credentials based on usersToTest
-//const credentials = allCredentials.filter(cred => usersToTest.includes(cred.key));
-
-
-// Run test for each credential set
 for (const cred of credentials) {
   test(`testME2L - ${cred.name} (${cred.username})`, async ({ page }) => {
-    //await page.goto('https://sapus4apps001.wowcorp.com.au:8443/sap/bc/ui2/flp?saml2=disabled');
-    await page.goto('https://sapts4apps001.wowcorp.com.au:8443/sap/bc/ui2/flp?saml2=disabled');
+    // US4 :
+    await page.goto('https://sapus4apps001.wowcorp.com.au:8443/sap/bc/ui2/flp?saml2=disabled');
+
+    // TS4 :
+    // await page.goto('https://sapts4apps001.wowcorp.com.au:8443/sap/bc/ui2/flp?saml2=disabled');
   await page.getByRole('textbox', { name: 'User' }).fill(cred.username);
   await page.getByRole('textbox', { name: 'Password' }).click();
   await page.getByRole('textbox', { name: 'Password' }).fill(cred.password);

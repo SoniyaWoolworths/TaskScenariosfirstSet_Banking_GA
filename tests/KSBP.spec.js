@@ -1,7 +1,11 @@
 import { test, expect } from '@playwright/test';
 
 test('testKSBP', async ({ page }) => {
- await page.goto('https://sapus4apps001.wowcorp.com.au:8443/sap/bc/ui2/flp?saml2=disabled&sap-client=300');
+  // US4 :
+  await page.goto('https://sapus4apps001.wowcorp.com.au:8443/sap/bc/ui2/flp?saml2=disabled&sap-client=300');
+
+  // TS4 :
+  // await page.goto('https://sapts4apps001.wowcorp.com.au:8443/sap/bc/ui2/flp?saml2=disabled&sap-client=300');
   // 2. Enter username as T_OHD_ACCTNT
   await page.getByRole('textbox', { name: 'User' }).fill(process.env.USERNAME2);
   // 3. Enter password as Welcome@123

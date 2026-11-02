@@ -13,30 +13,32 @@ const allCredentials = [
   { username: process.env.USERNAME10, password: process.env.PASSWORD10, name: 'User10' },//RetailSnrAccountant
 ];
 
-//const usersToTest = [3, 4, 7, 8, 9, 10]; 
-const usersToTest = [2];
+// const usersToTest = [3, 4, 7, 8, 9, 10]; 
+const usersToTest = [1];
+
 const credentials = allCredentials.filter((_, index) => usersToTest.includes(index + 1));
 for (const cred of credentials) {
   test(`testF1579- ${cred.name} (${cred.username})`, async ({ page }) => {
-  await page.goto('https://sapus4apps001.wowcorp.com.au:8443/sap/bc/ui2/flp?saml2=disabled');
-  await page.getByRole('textbox', { name: 'User' }).click();
-  await page.getByRole('textbox', { name: 'User' }).fill(cred.username);
-  await page.getByRole('textbox', { name: 'Password' }).click();
-  await page.getByRole('textbox', { name: 'Password' }).fill(cred.password);
-  await page.getByRole('button', { name: 'Log On' }).click();
-  await page.getByRole('button', { name: 'More' }).nth(0).click();
-  await page.waitForTimeout(2000);
-  await page.getByRole('menuitem', { name: 'Transaction' }).click();
-  await page.getByRole('link', { name: 'Clear G/L Accounts Manual' }).click();
-  await page.getByRole('textbox', { name: 'Company Code:' }).click();
-  await page.getByRole('textbox', { name: 'Company Code:' }).fill('1000');
-  await page.getByRole('textbox', { name: 'Company Code:' }).press('Enter');
-  await page.getByRole('textbox', { name: 'Posted By:' }).click();
-  await page.getByRole('textbox', { name: 'Posted By:' }).press('ControlOrMeta+a');
-  await page.getByRole('textbox', { name: 'Posted By:' }).fill('01.03.2026');
-  await page.getByRole('button', { name: 'Go', exact: true }).click();
-  //await page.waitForTimeout(90000);
-  await page.waitForTimeout(70000);
-  console.log('Waited for 70 seconds');
-});
+    // US4 : 
+    await page.goto('https://sapus4apps001.wowcorp.com.au:8443/sap/bc/ui2/flp?saml2=disabled');
+
+    // TS4 :
+    // await page.goto('https://sapts4apps001.wowcorp.com.au:8443/sap/bc/ui2/flp?saml2=disabled');
+
+    await page.getByRole('textbox', { name: 'User' }).click();
+    await page.getByRole('textbox', { name: 'User' }).fill(cred.username);
+    await page.getByRole('textbox', { name: 'Password' }).click();
+    await page.getByRole('textbox', { name: 'Password' }).fill(cred.password);
+    await page.getByRole('button', { name: 'Log On' }).click();
+    await page.getByRole('button', { name: 'More' }).nth(0).click();
+    await page.waitForTimeout(2000);
+    await page.getByRole('menuitem', { name: 'Transaction' }).click();
+    await page.getByRole('link', { name: 'Clear G/L Accounts Manual' }).click();
+    await page.getByRole('textbox', { name: 'Company Code:' }).click();
+    await page.getByRole('textbox', { name: 'Company Code:' }).fill('1000');
+    await page.getByRole('textbox', { name: 'Company Code:' }).press('Enter');
+    await page.getByRole('button', { name: 'Go', exact: true }).click();
+    //await page.waitForTimeout(90000);
+    await page.waitForTimeout(50000);
+  });
 }

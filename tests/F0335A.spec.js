@@ -12,32 +12,37 @@ const allCredentials = [
   { username: process.env.USERNAME10, password: process.env.PASSWORD10, name: 'User10' },//RetailSnrAccountant
 ];
 
-const usersToTest = [3, 4, 9, 10]; // Only run users 9 and 10
-//const usersToTest = [3, 4]; 
+//const usersToTest = [3, 4, 9, 10]; // Only run users 9 and 10
+const usersToTest = [1]; // Only run user 1]; 
 const credentials = allCredentials.filter((_, index) => usersToTest.includes(index + 1));
 for (const cred of credentials) {
   test(`testF0335A- ${cred.name} (${cred.username})`, async ({ page }) => {
-  await page.goto('https://sapts4apps001.wowcorp.com.au:8443/sap/bc/ui2/flp?saml2=disabled');
-  await page.getByRole('textbox', { name: 'User' }).fill(cred.username);
-  await page.getByRole('textbox', { name: 'Password' }).click();
-  await page.getByRole('textbox', { name: 'Password' }).fill(cred.password);
-  await page.getByRole('button', { name: 'Log On' }).click();
-  await page.getByRole('button', { name: 'More' }).nth(0).click();
-  await page.waitForTimeout(2000);
-  await page.getByRole('menuitem', { name: 'Master Data' }).click();
-  await page.getByRole('link', { name: 'Site Tile' }).click();
-  await page.getByRole('textbox', { name: 'Site:' }).click();
-  await page.getByRole('textbox', { name: 'Site:' }).fill('1005');
-  await page.getByRole('gridcell', { name: '1005', exact: true }).click();
-  await page.getByRole('button', { name: 'Go', exact: true }).click();
-  await page.getByTitle('Navigation', { exact: true }).click();
-  await page.getByRole('option', { name: 'Promotions' }).click();
-  await page.getByRole('option', { name: 'Product Groups' }).click();
-  await page.getByRole('option', { name: 'Supplying Sites' }).click();
-  await page.getByRole('option', { name: 'Assortments' }).click();
-  await page.getByRole('option', { name: 'Allocation Tables' }).click();
-  await page.getByRole('option', { name: 'Purchase Orders' }).click();
-  await page.getByRole('option', { name: 'Receiving Points' }).click();
-  await page.waitForTimeout(5000);
-});
-  }
+    // US4 : 
+    await page.goto('https://sapus4apps001.wowcorp.com.au:8443/sap/bc/ui2/flp?saml2=disabled');
+
+    // TS4 :
+    // await page.goto('https://sapts4apps001.wowcorp.com.au:8443/sap/bc/ui2/flp?saml2=disabled');
+
+    await page.getByRole('textbox', { name: 'User' }).fill(cred.username);
+    await page.getByRole('textbox', { name: 'Password' }).click();
+    await page.getByRole('textbox', { name: 'Password' }).fill(cred.password);
+    await page.getByRole('button', { name: 'Log On' }).click();
+    await page.getByRole('button', { name: 'More' }).nth(0).click();
+    await page.waitForTimeout(2000);
+    await page.getByRole('menuitem', { name: 'Master Data' }).click();
+    await page.getByRole('link', { name: 'Site Tile' }).click();
+    await page.getByRole('textbox', { name: 'Site:' }).click();
+    await page.getByRole('textbox', { name: 'Site:' }).fill('1005');
+    await page.getByRole('gridcell', { name: '1005', exact: true }).click();
+    await page.getByRole('button', { name: 'Go', exact: true }).click();
+    await page.getByTitle('Navigation', { exact: true }).click();
+    await page.getByRole('option', { name: 'Promotions' }).click();
+    await page.getByRole('option', { name: 'Product Groups' }).click();
+    await page.getByRole('option', { name: 'Supplying Sites' }).click();
+    await page.getByRole('option', { name: 'Assortments' }).click();
+    await page.getByRole('option', { name: 'Allocation Tables' }).click();
+    await page.getByRole('option', { name: 'Purchase Orders' }).click();
+    await page.getByRole('option', { name: 'Receiving Points' }).click();
+    await page.waitForTimeout(5000);
+  });
+}

@@ -13,12 +13,16 @@ const allCredentials = [
     { username: process.env.USERNAME10, password: process.env.PASSWORD10, name: 'User10' },//RetailSnrAccountant
   ];
   
-  //const usersToTest = [3, 4, 7, 8, 9, 10]; 
-  const usersToTest = [1]; 
+  // const usersToTest = [3, 4, 7, 8, 9, 10]; 
+  const usersToTest = [1];
   const credentials = allCredentials.filter((_, index) => usersToTest.includes(index + 1));
     for (const cred of credentials) {
-      test(`testF0717A- ${cred.name} (${cred.username})`, async ({ page }) => {
-      await page.goto('https://sapus4apps001.wowcorp.com.au:8443/sap/bc/ui2/flp?saml2=disabled');
+      test(`testF0717A - ${cred.name} (${cred.username})`, async ({ page }) => {
+      // US4 : 
+    await page.goto('https://sapus4apps001.wowcorp.com.au:8443/sap/bc/ui2/flp?saml2=disabled');
+
+    // TS4 :
+    // await page.goto('https://sapts4apps001.wowcorp.com.au:8443/sap/bc/ui2/flp?saml2=disabled');
  
   // 1. Login into url
   // 2. Enter username as T_BNK_ACCTNT
@@ -31,10 +35,9 @@ const allCredentials = [
   await page.getByRole('listitem', { name: 'Transaction Banking Tile' }).click();
   // 6. Click on manage journal entries under general ledger
   await page.getByRole('link', { name: 'Manage Journal Entries New' }).click();
-  await page.waitForTimeout(5000);
   // 7. Click on create
   await page.getByRole('button', { name: 'Create' }).click();
-  await page.getByRole('textbox', { name: 'Journal Entry Date' }).fill('05.06.2026');
+  await page.getByRole('textbox', { name: 'Journal Entry Date' }).fill('27.01.2026');
   await page.getByRole('textbox', { name: 'Reference' }).click();
   await page.getByRole('textbox', { name: 'Reference' }).fill('TEST00');
   await page.getByRole('textbox', { name: 'Header Text' }).click();

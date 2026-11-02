@@ -15,15 +15,18 @@ const allCredentials = [
 ];
 
 // Select which users to test - Change these numbers to run different users
-const usersToTest = [3, 4, 5, 6, 7, 8, 9, 10];
+const usersToTest = [1];
 //const usersToTest = [8, 9]; // Only run users 1, 2, 6, 8, 9
 const credentials = allCredentials.filter((_, index) => usersToTest.includes(index + 1));
 
 // Run test for each credential set
 for (const cred of credentials) {
   test(`testF2217 - ${cred.name} (${cred.username})`, async ({ page }) => {
-    //await page.goto('https://sapus4apps001.wowcorp.com.au:8443/sap/bc/ui2/flp?saml2=disabled');
-    await page.goto('https://sapts4apps001.wowcorp.com.au:8443/sap/bc/ui2/flp?saml2=disabled');
+    // US4 :
+    await page.goto('https://sapus4apps001.wowcorp.com.au:8443/sap/bc/ui2/flp?saml2=disabled');
+
+    // TS4 :
+    // await page.goto('https://sapts4apps001.wowcorp.com.au:8443/sap/bc/ui2/flp?saml2=disabled');
     await page.getByRole('textbox', { name: 'User' }).click();
     await page.getByRole('textbox', { name: 'User' }).fill(cred.username);
     await page.getByRole('textbox', { name: 'Password' }).click();

@@ -1,0 +1,37 @@
+{
+  "firstRule": {
+    "merchantOrgId": "TESTFBA",
+    "feeCode": "WPAYGCB",
+    "ruleNumber": "1",
+    "creditDebit": "Credit",
+    "bankId": "1410",
+    "glAccount": "204615",
+    "divisionNumber": "19",
+    "costCenter": "5971",
+    "assignmentField": "Y",
+    "fieldSource": "MERCHANT_ORG_ID",
+    "text": "TESTFBA",
+    "assignmentType": "D1"
+  },
+  "secondRule": {
+    "merchantOrgId": "TESTFBA",
+    "feeCode": "WPAYGCB",
+    "ruleNumber": "1",
+    "creditDebit": "Debit",
+    "bankId": "1410",
+    "glAccount": "413319",
+    "divisionNumber": "19",
+    "costCenter": "5971",
+    "assignmentField": "Y",
+    "fieldSource": "MERCHANT_ORG_ID",
+    "text": "TESTFBA",
+    "assignmentType": "D1",
+    "companyCode": "1410",
+    "profitCenter": "5971"
+  },
+  "position": {
+    "processingType": "TESTFBA",
+    "merchantOrgId": "MERCHANT_ORG_ID",
+    "ruleNumber": "1"
+  }
+}

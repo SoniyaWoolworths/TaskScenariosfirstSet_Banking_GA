@@ -1,0 +1,7 @@
+{
+  "initialVariant": "WESTPAC MANUAL",
+  "statementFile": "utility/WXSAPIT_M_20251126.txt",
+  "multicashHeaderFile": "utility/WXSAPHD_M_20251126.txt",
+  "searchVariant": "WESTPAC",
+  "finalVariant": "WESTPAC"
+}

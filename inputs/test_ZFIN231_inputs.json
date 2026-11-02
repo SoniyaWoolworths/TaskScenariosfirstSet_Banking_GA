@@ -1,0 +1,31 @@
+{
+  "firstRule": {
+    "recordType": "L",
+    "merchantOrgId": "TESTFBA",
+    "ruleNumber": "1",
+    "creditDebit": "Credit",
+    "value": "1410",
+    "assignmentField": "N",
+    "fieldSource": "MERCHANT_ORG_ID",
+    "text": "*APM Settlement",
+    "assignmentType": "DR"
+  },
+  "secondRule": {
+    "recordType": "L",
+    "merchantOrgId": "TESTFBA",
+    "ruleNumber": "1",
+    "creditDebit": "Debit",
+    "companyCode": "1000",
+    "glAccount": "699200",
+    "costCenter": "5831",
+    "assignmentField": "Y",
+    "fieldSource": "MERCHANT_ORG_ID",
+    "text": "*APM Settlement",
+    "assignmentType": "DR"
+  },
+  "position": {
+    "recordType": "L",
+    "merchantOrgId": "TESTFBA",
+    "ruleNumber": "1"
+  }
+}

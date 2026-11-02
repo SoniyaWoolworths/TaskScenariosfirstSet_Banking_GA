@@ -1,0 +1,13 @@
+{
+	"servers": {
+		"my-mcp-server-3fc0a3ec": {
+			"type": "stdio",
+			"command": "goto",
+			"args": [
+				"-",
+				"https://sapus4apps001.wowcorp.com.au:8443/sap/bc/ui2/flp?saml2=disabled#Shell-home"
+			]
+		}
+	},
+	"inputs": []
+}

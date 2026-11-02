@@ -1,0 +1,20 @@
+{
+  "documentType": "SB",
+  "companyCode": "1000",
+  "period": "7",
+  "currency": "AUD",
+  "reference": "TEST3",
+  "headerText": "TEST3",
+  "firstLineItem": {
+    "postingKey": "40",
+    "account": "656000",
+    "amount": "10",
+    "costCenter": "6600"
+  },
+  "secondLineItem": {
+    "postingKey": "50",
+    "account": "656000",
+    "amount": "10",
+    "costCenter": "6600"
+  }
+}

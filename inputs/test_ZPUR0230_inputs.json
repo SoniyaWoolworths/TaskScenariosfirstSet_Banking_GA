@@ -1,0 +1,18 @@
+{
+  "hedgeRate": {
+    "merchandiseCategory": "ARIBA",
+    "fromCurrency": "USD",
+    "toCurrency": "AUD",
+    "source": "ARIBA",
+    "rate": "1.56009"
+  },
+  "updateRate": {
+    "oldRate": "1.56009",
+    "newRate": " 1.56007"
+  },
+  "position": {
+    "merchandiseCategory": "ARIBA",
+    "fromCurrency": "USD",
+    "toCurrency": "AUD"
+  }
+}

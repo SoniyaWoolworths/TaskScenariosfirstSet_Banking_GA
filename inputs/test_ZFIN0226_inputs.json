@@ -1,0 +1,14 @@
+{
+  "source": {
+    "companyCode": "7000",
+    "documentType": "XT",
+    "profitCenter": "6802"
+  },
+  "entryDate": "04.11.2025",
+  "glAccount": "109285",
+  "target": {
+    "companyCode": "7000",
+    "documentType": "XT"
+  },
+  "postingDate": "04.11.2025"
+}
